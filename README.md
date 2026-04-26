@@ -67,6 +67,8 @@ Retail-Data-Project/
 ├── README.md
 ├── notebooks/
 │   └── retail_pipeline.py
+├── adf/
+│   └── pipeline_export.json (or pipeline screenshots)
 ├── screenshots/
 │   ├── adf_pipeline.png
 │   ├── databricks_notebook.png
