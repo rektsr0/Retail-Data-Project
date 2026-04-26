@@ -1,12 +1,12 @@
 # Retail-Data-Project
 
-## 📊 Retail Data Pipeline (Azure + Databricks)
+## Retail Data Pipeline (Azure + Databricks)
 
-## 🚀 Overview
+## Overview
 
-This project implements an end-to-end data engineering pipeline using Azure services. It ingests retail transaction data from GitHub, stores it in Azure Data Lake, and processes it using Databricks following the Medallion Architecture (Bronze, Silver, Gold).
+This project implements an end-to-end data engineering pipeline using Azure services. It ingests retail transaction data from GitHub, stores it in Azure Data Lake, and processes it using Databricks following the Medallion Architecture (Bronze, Silver, Gold). Azure Data Factory also checks for updated CSV and runs pipleine to update notebook and tiers when a CSV is updated. 
 
-## 🧱 Architecture
+## Architecture
 
 GitHub (CSV)  
 ↓  
@@ -16,7 +16,7 @@ Azure Data Lake Storage Gen2 (Raw / Bronze / Silver / Gold)
 ↓  
 Azure Databricks (PySpark Transformations)
 
-## 🛠 Tech Stack
+## Tech Stack
 
 - Azure Data Factory (ADF)
 - Azure Data Lake Storage Gen2 (ADLS)
@@ -25,7 +25,7 @@ Azure Databricks (PySpark Transformations)
 - Delta Lake
 - GitHub
 
-## 🔄 Pipeline Workflow
+## Pipeline Workflow
 
 ### 1. Data Ingestion (ADF)
 
@@ -34,13 +34,13 @@ Azure Databricks (PySpark Transformations)
 
 ### 2. Data Processing (Databricks)
 
-#### 🥉 Bronze Layer
+#### Bronze Layer
 
 - Raw data ingested from ADLS
 - Stored in Delta format
 - Minimal transformations (schema applied)
 
-#### 🥈 Silver Layer
+#### Silver Layer
 
 Data cleaning and transformation:
 
@@ -52,7 +52,7 @@ Created new column:
 
 - Revenue = Quantity × UnitPrice
 
-#### 🥇 Gold Layer
+#### Gold Layer
 
 Aggregated data for analytics:
 
@@ -60,7 +60,7 @@ Aggregated data for analytics:
 - Sorted highest-value customers
 - Ready for reporting and BI tools
 
-## 📂 Project Structure
+##  Project Structure
 
 ```text
 Retail-Data-Project/
@@ -74,7 +74,7 @@ Retail-Data-Project/
 │   └── pipeline_success.png
 ```
 
-## ⚙️ Key Features
+## Key Features
 
 - End-to-end pipeline from ingestion to analytics
 - Medallion architecture implementation
@@ -82,26 +82,18 @@ Retail-Data-Project/
 - Automated orchestration using ADF
 - Integration between ADF and Databricks
 
-## 🔐 Security Considerations
+## Security Considerations
 
 - No credentials or secrets are stored in code
 - Azure Storage keys should be managed using:
   - Databricks Secrets
   - Azure Key Vault
 
-## 📈 Sample Output (Gold Layer)
+## Sample Output (Gold Layer)
 
 - Top customers by revenue
 - Cleaned and structured transaction data
 - Aggregated metrics for analytics
-
-## 🎯 What I Learned
-
-- Building scalable data pipelines in Azure
-- Orchestrating workflows with ADF
-- Transforming data using PySpark
-- Implementing Medallion Architecture
-- Integrating multiple Azure services
 
 ## 🚀 Future Improvements
 
