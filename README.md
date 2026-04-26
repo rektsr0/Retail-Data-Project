@@ -4,7 +4,7 @@
 
 ## Overview
 
-This project implements an end-to-end data engineering pipeline using Azure services. It ingests retail transaction data from GitHub, stores it in Azure Data Lake, and processes it using Databricks following the Medallion Architecture (Bronze, Silver, Gold). Azure Data Factory also checks for updated CSV and runs pipleine to update notebook and tiers when a CSV is updated. 
+This project implements an end-to-end data engineering pipeline using Azure services. It ingests retail transaction data from GitHub, stores it in Azure Data Lake, and processes it using Databricks following the Medallion Architecture (Bronze, Silver, Gold). Azure Data Factory also checks for updated CSV and runs pipleine to update notebook and tiers when a CSV is updated. All tiered data then gets connected with PowerBI from Azure DB. In process of creating interactive dash board. 
 
 ## Architecture
 
