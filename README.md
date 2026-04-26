@@ -4,17 +4,23 @@
 
 ## Overview
 
-This project implements an end-to-end data engineering pipeline using Azure services. It ingests retail transaction data from GitHub, stores it in Azure Data Lake, and processes it using Databricks following the Medallion Architecture (Bronze, Silver, Gold). Azure Data Factory also checks for updated CSV and runs pipleine to update notebook and tiers when a CSV is updated. All tiered data then gets connected with PowerBI from Azure DB. In process of creating interactive dash board. 
+This project implements an end-to-end data engineering pipeline using Azure services. It ingests retail transaction data from GitHub, stores it in Azure Data Lake, and processes it using Databricks following the Medallion Architecture (Bronze, Silver, Gold). Azure Data Factory also checks for updated CSV and runs the pipeline to refresh the notebook and tiered tables when the CSV changes. Gold-tier data is connected to Power BI for reporting; an interactive dashboard was in progress (see `Dashboard/README.md`).
 
 ## Architecture
 
-GitHub (CSV)  
+End-to-end flow as implemented:
+
+GitHub (CSV source)  
 ↓  
-Azure Data Factory (Ingestion + Orchestration)  
+Azure Data Factory (ingestion + orchestration)  
 ↓  
-Azure Data Lake Storage Gen2 (Raw / Bronze / Silver / Gold)  
+Azure Data Lake Storage Gen2 (Raw → Bronze → Silver → Gold)  
 ↓  
-Azure Databricks (PySpark Transformations)
+Azure Databricks (PySpark notebook: medallion transforms)  
+↓  
+Power BI (reports on gold-tier data)
+
+What lives in this repository: sample source data (`CSV/`), the Databricks notebook export (`Notebook/`), ADF pipeline artifacts and a pipeline screenshot (`Azure Data Factory Pipeline/`), and dashboard notes plus a screenshot placeholder (`Dashboard/`).
 
 ## Tech Stack
 
@@ -23,6 +29,7 @@ Azure Databricks (PySpark Transformations)
 - Azure Databricks
 - PySpark
 - Delta Lake
+- Power BI
 - GitHub
 
 ## Pipeline Workflow
@@ -60,20 +67,21 @@ Aggregated data for analytics:
 - Sorted highest-value customers
 - Ready for reporting and BI tools
 
-##  Project Structure
+## Project Structure
 
 ```text
 Retail-Data-Project/
 ├── README.md
-├── notebooks/
-│   └── retail_pipeline.py
-├── adf/
-│   └── pipeline_export.json (or pipeline screenshots)
-├── screenshots/
-│   ├── adf_pipeline.png
-│   ├── databricks_notebook.png
-│   ├── bronze_silver_gold.png
-│   └── pipeline_success.png
+├── CSV/
+│   └── online_retail.csv
+├── Notebook/
+│   └── tiers_retail.ipynb
+├── Azure Data Factory Pipeline/
+│   ├── retail_pipeline1.zip
+│   └── Screenshot 2026-04-25 234555.png
+└── Dashboard/
+    ├── README.md
+    └── Dashboard.png
 ```
 
 ## Key Features
@@ -82,7 +90,7 @@ Retail-Data-Project/
 - Medallion architecture implementation
 - Data stored in Delta Lake format
 - Automated orchestration using ADF
-- Integration between ADF and Databricks
+- Integration between ADF, Databricks, and Power BI for reporting
 
 ## Security Considerations
 
@@ -97,9 +105,9 @@ Retail-Data-Project/
 - Cleaned and structured transaction data
 - Aggregated metrics for analytics
 
-## 🚀 Future Improvements
+## Future improvements
 
 - Add incremental data loading
-- Integrate Azure Synapse or Power BI for visualization
+- Expand Power BI dashboards (rebuild interactive dashboard; see `Dashboard/README.md`)
 - Implement event-based triggers (instead of manual runs)
 - Use Azure Key Vault for full secret management
