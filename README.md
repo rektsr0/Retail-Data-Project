@@ -20,7 +20,7 @@ Azure Databricks (PySpark notebook: medallion transforms)
 ↓  
 Power BI (reports on gold-tier data)
 
-What lives in this repository: sample source data (`CSV/`), the Databricks notebook export (`Notebook/`), ADF pipeline artifacts and a pipeline screenshot (`Azure Data Factory Pipeline/`), and dashboard notes plus a screenshot placeholder (`Dashboard/`).
+What lives in this repository: sample source data (`CSV/`), Databricks notebooks (`Databricks Notebooks/`), ADF pipeline artifacts (`Azure Data Factory Pipeline/`), ADLS screenshots (`Azure Data Lake/`), Databricks job run evidence (`Databricks Jobs+Runs/`), and dashboard notes plus screenshot (`Dashboard/`).
 
 ## Tech Stack
 
@@ -74,11 +74,18 @@ Retail-Data-Project/
 ├── README.md
 ├── CSV/
 │   └── online_retail.csv
-├── Notebook/
-│   └── tiers_retail.ipynb
+├── Databricks Notebooks/
+│   ├── tiers_retail.ipynb
+│   ├── logging.ipynb
+│   └── quality_checks.ipynb
 ├── Azure Data Factory Pipeline/
 │   ├── retail_pipeline1.zip
-│   └── Screenshot 2026-04-25 234555.png
+│   ├── Screenshot 2026-04-25 234555.png
+│   └── trigger+alert update.png
+├── Azure Data Lake/
+│   └── Data Lake.png
+├── Databricks Jobs+Runs/
+│   └── Job1.png
 └── Dashboard/
     ├── README.md
     └── Dashboard.png
